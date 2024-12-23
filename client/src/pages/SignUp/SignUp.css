@@ -1,0 +1,112 @@
+/* SignUp.css */
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Stack sections vertically */
+    align-items: center; /* Center align items */
+    padding: 20px;
+    
+    margin: auto; /* Center the container */
+    background: linear-gradient(to bottom, #000, #555); /* Black and Grey Theme */
+    color: #eee;
+    width: 100vw;
+    height:100vh;
+  
+}
+
+.section {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit max width for each section */
+    margin: 10px 0; /* Space between sections */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #444; /* Dark grey background for sections */
+    text-align: center; /* Center text */
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff; /* White text */
+}
+
+form input {
+    display: block;
+    width: 80%; /* Full width of the input */
+    margin: 10px auto; /* Center the input */
+    padding: 10px;
+    border: 1px solid #666; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #333; /* Dark background for inputs */
+    color: #fff; /* White text */
+}
+
+form input::placeholder {
+    color: #aaa; /* Light grey placeholder text */
+}
+
+form button {
+    width: 85%; /* Full width of the button */
+    padding: 10px;
+    margin-top: 10px;
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #555; /* Button background color */
+    color: white; /* Button text color */
+    font-size: 16px; /* Font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s ease; /* Smooth transition for hover effect */
+}
+
+form button:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+form p {
+    margin-top: 10px; /* Space above paragraph */
+    font-size: 14px; /* Font size for paragraph */
+    color: #ddd; /* Light grey text */
+}
+
+form p a {
+    color: #fff; /* White link color */
+    text-decoration: none; /* Remove underline */
+}
+
+form p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Divider styles */
+.divider {
+    width: 50%; /* Full width */
+    height: 1px; /* Height of the divider */
+    background-color: #888; /* Divider color */
+    margin: 20px 0; /* Space around divider */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .section {
+        max-width: 90%; /* Allow sections to take more width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+    }
+
+    form input, form button {
+        font-size: 0.9rem; /* Adjust font size for inputs and buttons */
+    }
+}
