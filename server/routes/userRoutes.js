@@ -1,50 +1,59 @@
-const router = require('express').Router();
-const user  = require('../controllers/userController');
+const express = require('express');
+const { 
+  registerUser, 
+  loginUser, 
+  sendUserVerificationEmail, 
+  verifyUser, 
+  logout, 
+  forgotPassword, 
+  resetPassword, 
+  contactUs, 
+  profile, 
+  updateProfile, 
+  getUsers 
+} = require('../controllers/userController');
 const catchAsync = require('../utils/CatchAsync');
-const { isClient, upload } = require('../middleware.js');
+const { isClient, upload } = require('../middleware');
+const router = express.Router();
 
+// Route for user registration
+router.post('/register', catchAsync(registerUser));
 
-router.route('/sendProfileDetails')
-    .get(isClient,catchAsync(user.profile));
-    
-router.route('/login')
-    .post(catchAsync(user.login));
-    
-    
-router.route('/register')
-    .post(catchAsync(user.register));
+// Route for user login
+router.post('/login', catchAsync(loginUser));
 
-router.route('/sendverificationEmail/:userid')
-    .post(catchAsync(user.sendUserVerificationEmail));
+// Route to send verification email
+router.post('/sendverificationEmail/:userid', catchAsync(sendUserVerificationEmail));
 
-router.route('/verifyEmail/:userid/:token')
-    .get(catchAsync(user.verifyUser));
+// Route for email verification (ensure user ID and token are valid)
+router.get('/verifyEmail/:userid/:token', catchAsync(verifyUser));
 
+// Route for logout
+router.get('/logout', catchAsync(logout));
 
-router.route('/logout')
-    .get(user.logout);
+// Route for forgotten password
+router.post('/forgotpassword', catchAsync(forgotPassword));
 
+// Route for password reset page rendering (GET request)
+router.get('/resetpassword/:id/:token', (req, res) => {
+  const { id, token } = req.params;
+  // Add validation for id and token format if needed
+  res.render('resetpassword', { id, token });
+});
 
-router.route('/forgotpassword')
-    .post(catchAsync(user.forgotPassword));
+// Route for resetting password (POST request)
+router.post('/resetpassword/:id/:token', catchAsync(resetPassword));
 
-router.route('/resetpassword/:id/:token')
-    .get((req, res) => {
-        const { id, token } = req.params;
-        res.render('resetpassword', { id, token });
-    })
-    .post(catchAsync(user.resetPassword));
+// Route for contacting support
+router.post('/contact', catchAsync(contactUs));
 
-router.route('/contact')
-    .post(catchAsync(user.contactUs));
+// Route to get the user profile (only accessible by authenticated clients)
+router.get('/profile', isClient, catchAsync(profile));
 
-router.route('/profile')
-    .get(isClient,catchAsync(user.profile));
+// Route to update the user profile (only accessible by authenticated clients)
+router.post('/updateprofile', isClient, upload.single('photo'), catchAsync(updateProfile));
 
-router.route('/updateprofile')
-    .post(isClient, upload.single('photo'), catchAsync(user.updateProfile));
-
-router.route('/getusers')
-    .get(isClient,catchAsync(user.getUsers));
+// Route to get all users (only accessible by authenticated clients)
+router.get('/getusers', isClient, catchAsync(getUsers));
 
 module.exports = router;

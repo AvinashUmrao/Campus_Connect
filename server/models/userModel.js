@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-
+// Check if the model is already defined to avoid overwriting it
 const userSchema = new schema({
-
     name: {
         type: String,
         required: true,
@@ -26,5 +25,7 @@ const userSchema = new schema({
     },
 });
 
+// Check if the model is already compiled
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = User;
