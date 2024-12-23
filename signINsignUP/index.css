@@ -1,0 +1,11 @@
+html, body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Ensure full width */
+  height: 100%; /* Ensure full height */
+}
+
+#root {
+  width: 100vw; /* Set width to 100% of the viewport width */
+  height: 100vh; /* Optional: Set height to 100% of the viewport height */
+}
