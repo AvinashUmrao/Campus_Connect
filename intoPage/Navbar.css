@@ -1,0 +1,42 @@
+/* Navbar.css */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.navbar {
+    background-color: #333; /* Dark background */
+    padding: 1rem;          /* Padding around the navbar */
+    position: fixed;        /* Fix the navbar at the top */
+    top: 0;                 /* Position it at the top of the viewport */
+    left: 0;                /* Align it to the left */
+    right: 0;               /* Align it to the right */
+    z-index: 1000;          /* Ensure it stays above other content */
+}
+
+.navbar-list {
+    list-style-type: none;  /* Remove bullet points */
+    display: flex;          /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the items */
+    margin: 0;              /* Remove default margin */
+    padding: 0;             /* Remove default padding */
+}
+
+.navbar-item {
+    margin: 0 1rem;        /* Space between items */
+}
+
+.navbar-item a {
+    color: white;          /* White text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar-item a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Additional styles to prevent content from being hidden behind the navbar */
+body {
+    padding-top: 4rem; /* Adjust this value based on the height of your navbar */
+}
