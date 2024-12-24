@@ -8,6 +8,9 @@ import { Routes, Route } from 'react-router-dom'
 import SiginIn from './pages/SignIn/SignInSignUp'
 import SignUp from './pages/SignUp/SignUp'
 import TypingEffect from './components/typingEffect'
+export default App
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import {routes} from "./routes/routes"
 
 function App() {
 
@@ -19,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/signin" element={<SiginIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <RouterProvider router={router}/>
 
         </Routes>
       </div>
@@ -26,4 +30,6 @@ function App() {
   )
 }
 
-export default App
+
+
+

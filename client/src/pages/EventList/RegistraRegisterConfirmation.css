@@ -1,0 +1,20 @@
+.register-confirmation {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .back-to-events {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .back-to-events:hover {
+    background-color: #218838;
+  }
+  
+  
