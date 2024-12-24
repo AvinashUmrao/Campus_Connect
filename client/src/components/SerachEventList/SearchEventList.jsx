@@ -36,4 +36,5 @@ const SearchEventList = ({monthYear})=>{
        </>
     )
 }
+
 export default SearchEventList;
